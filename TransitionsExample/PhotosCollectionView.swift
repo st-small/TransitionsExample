@@ -9,11 +9,16 @@
 import UIKit
 
 public class PhotosCollectionView: UICollectionView {
+    
+    public var cellHeight: CGFloat {
+        let screenWidth = UIScreen.main.bounds.width
+        let height: CGFloat = (screenWidth - 36.0)/2
+        return height
+    }
 
     public var heightValue: CGFloat {
-        let height: CGFloat = 142.0
         let count = CGFloat(photosDelegate.photosSource.count)
-        return count * (height + minimumLineSpacing) + minimumLineSpacing
+        return count * (cellHeight + minimumLineSpacing) + minimumLineSpacing
     }
 
     private let minimumLineSpacing: CGFloat = 12.0
@@ -82,6 +87,6 @@ extension PhotosCollectionView: UICollectionViewDataSource {
 
 extension PhotosCollectionView: UICollectionViewDelegateFlowLayout {
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 142.0, height: 142.0)
+        return CGSize(width: cellHeight, height: cellHeight)
     }
 }

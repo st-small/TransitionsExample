@@ -70,7 +70,8 @@ public class PhotoPreviewController: UIViewController {
         self.scrollView.addSubview(contentView)
         contentView.translatesAutoresizingMaskIntoConstraints = false
         
-        let widthValue: CGFloat = CGFloat(allPhotos.count) * 320.0
+        let screenWidth = UIScreen.main.bounds.width
+        let widthValue: CGFloat = CGFloat(allPhotos.count) * screenWidth
         contentView.topAnchor.constraint(equalTo: contentView.superview!.topAnchor).isActive = true
         contentView.bottomAnchor.constraint(equalTo: contentView.superview!.bottomAnchor).isActive = true
         contentView.trailingAnchor.constraint(equalTo: contentView.superview!.trailingAnchor).isActive = true
